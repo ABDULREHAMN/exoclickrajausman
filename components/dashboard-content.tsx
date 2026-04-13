@@ -172,9 +172,9 @@ export function DashboardContent({ onNavigate }: DashboardContentProps) {
   ]
 
   const todayTotals = {
-    impressions: 17210,
-    clicks: 2008,
-    revenue: 570.66,
+    impressions: 18432,
+    clicks: 2234,
+    revenue: 654.34,
   }
 
   // This ensures all data aggregates to locked totals: $4,819.23 revenue, 32,687 clicks, 567,531 impressions
