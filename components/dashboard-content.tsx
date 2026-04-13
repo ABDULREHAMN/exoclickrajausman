@@ -79,12 +79,12 @@ export function DashboardContent({ onNavigate }: DashboardContentProps) {
     }
   }
 
-  const availableBalance = 12013.28
-  const pendingBalance = 1410.00
-  const thisMonthEarnings = 10529.00
-  const lastMonthEarnings = 2910.11
+  const availableBalance = 10343.43
+  const pendingBalance = 00
+  const thisMonthEarnings = 9161.66
+  const lastMonthEarnings = 2140.75
   const totalPayments = 1585.18
-  const totalEarnings = 15039.16
+  const totalEarnings = 11971.88
   const nextWithdrawalDate = "14 Apr 2026"
 
   const allReportData = [
@@ -135,27 +135,27 @@ export function DashboardContent({ onNavigate }: DashboardContentProps) {
   ]
 
   const recentActivityData = [
-    { date: "Apr 13, 2026", impressions: 17210, clicks: 2008, revenue: 570.66, ctr: "11.67%", ecpm: "404.97" },
+    { date: "Apr 13, 2026", impressions: 18432, clicks: 2234, revenue: 654.34, ctr: "6.67%", ecpm: "441.17" },
   ]
-  
+
   console.log("[v0] Recent Activity Data:", recentActivityData)
   console.log("[v0] Print Log - 09 Apr 2026 - No print action")
   console.log("[v0] Print Log - 10 Apr 2026 - Ready for Print")
 
   const latestActivity = {
     date: "Apr 13, 2026",
-    revenue: 570.66,
-    impressions: 17210,
-    clicks: 2008,
-    ctr: "11.67%",
-    ecpm: "404.97",
+    revenue: 654.34,
+    impressions: 18432,
+    clicks: 2234,
+    ctr: "6.67%",
+    ecpm: "441.17",
   }
 
-  const todayRevenue = 570.66
-  const todayImpressions = 17210
-  const todayClicks = 2008
-  const todayCTR = "11.67"
-  const todayECPM = "404.97"
+  const todayRevenue = 654.34
+  const todayImpressions = 18432
+  const todayClicks = 2234
+  const todayCTR = "6.67"
+  const todayECPM = "441.17"
 
   const hourlyData = [
     { hour: "00", revenue: 2, impressions: 400, clicks: 5, ctr: "1.25%", ecpm: "5.00" },
@@ -172,9 +172,9 @@ export function DashboardContent({ onNavigate }: DashboardContentProps) {
   ]
 
   const todayTotals = {
-    impressions: 17210,
-    clicks: 2008,
-    revenue: 570.66,
+    impressions: 18432,
+    clicks: 2234,
+    revenue: 654.34,
   }
 
   // This ensures all data aggregates to locked totals: $4,819.23 revenue, 32,687 clicks, 567,531 impressions
@@ -906,18 +906,18 @@ Top Country of Day: ${topCountryOfDay.country} ($${topCountryOfDay.revenue.toFix
 
 Country Revenue Breakdown:
 ${Object.entries(getCountryRevenueBreakdown())
-  .map(([country, revenue]) => `  ${country}: $${revenue.toFixed(2)}`)
-  .join("\n")}
+          .map(([country, revenue]) => `  ${country}: $${revenue.toFixed(2)}`)
+          .join("\n")}
 
 Best Hour Per Country:
 ${Object.entries(bestHourPerCountry_old)
-  .map(([country, data]) => `  ${country}: ${data.hour}:00`)
-  .join("\n")}
+          .map(([country, data]) => `  ${country}: ${data.hour}:00`)
+          .join("\n")}
 
 Top Keyword Per Country:
 ${Object.entries(topKeywordPerCountry_old)
-  .map(([country, data]) => `  ${country}: ${data.keyword}`)
-  .join("\n")}
+          .map(([country, data]) => `  ${country}: ${data.keyword}`)
+          .join("\n")}
 
 DETAILED DATA
 ${exportData.map((d) => `${d.Date} | Revenue: ${d.Revenue} | Impressions: ${d.Impressions} | Clicks: ${d.Clicks}`).join("\n")}
