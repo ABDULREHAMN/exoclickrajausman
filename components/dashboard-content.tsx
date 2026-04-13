@@ -152,10 +152,10 @@ export function DashboardContent({ onNavigate }: DashboardContentProps) {
   }
 
   const todayRevenue = 654.34
-  const todayImpressions = 17210
-  const todayClicks = 2008
-  const todayCTR = "11.67"
-  const todayECPM = "404.97"
+  const todayImpressions = 18432
+  const todayClicks = 2234
+  const todayCTR = "6.67"
+  const todayECPM = "441.17"
 
   const hourlyData = [
     { hour: "00", revenue: 2, impressions: 400, clicks: 5, ctr: "1.25%", ecpm: "5.00" },
