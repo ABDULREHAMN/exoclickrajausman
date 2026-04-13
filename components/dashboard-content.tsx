@@ -79,12 +79,12 @@ export function DashboardContent({ onNavigate }: DashboardContentProps) {
     }
   }
 
-  const availableBalance = 10343.43
-  const pendingBalance = 00
-  const thisMonthEarnings = 9161.66
-  const lastMonthEarnings = 2140.75
+  const availableBalance = 12013.28 + 3426.00
+  const pendingBalance = 1410.00
+  const thisMonthEarnings = 5476.75 + 3426.00
+  const lastMonthEarnings = 2140.10
   const totalPayments = 1585.18
-  const totalEarnings = 11971.88
+  const totalEarnings = 8286.98 + 3426.00
   const nextWithdrawalDate = "14 Apr 2026"
 
   const allReportData = [
@@ -132,30 +132,47 @@ export function DashboardContent({ onNavigate }: DashboardContentProps) {
     { date: "Feb 28, 2026", impressions: 13453, clicks: 341, revenue: 83.12, ctr: "2.53%", ecpm: "92.77" },
     { date: "Mar 1, 2026", impressions: 13425, clicks: 365, revenue: 81.55, ctr: "2.72%", ecpm: "82.23" },
     { date: "Mar 2, 2026", impressions: 1125, clicks: 45, revenue: 11.79, ctr: "4.00%", ecpm: "83.55" },
+    { date: "Apr 03, 2026", impressions: 18790, clicks: 2410, revenue: 168.20, ctr: "7.83%", ecpm: "445.00" },
+    { date: "Apr 04, 2026", impressions: 18950, clicks: 2490, revenue: 170.10, ctr: "8.14%", ecpm: "480.00" },
+    { date: "Apr 05, 2026", impressions: 25200, clicks: 4172, revenue: 910.00, ctr: "6.56%", ecpm: "490.00" },
+    { date: "Apr 06, 2026", impressions: 26283, clicks: 4472, revenue: 1080.78, ctr: "7.02%", ecpm: "498.00" },
+    { date: "Apr 07, 2026", impressions: 27223, clicks: 4342, revenue: 940.21, ctr: "8.02%", ecpm: "492.10" },
+    { date: "Apr 08, 2026", impressions: 27203, clicks: 4543, revenue: 880.18, ctr: "7.02%", ecpm: "448.20" },
+    { date: "Apr 09, 2026", impressions: 30285, clicks: 2572, revenue: 782.00, ctr: "8.79%", ecpm: "491.66" },
+    { date: "Apr 10, 2026", impressions: 31210, clicks: 3210, revenue: 910.00, ctr: "8.80%", ecpm: "491.00" },
+    { date: "Apr 11, 2026", impressions: 33210, clicks: 3212, revenue: 915.00, ctr: "8.95%", ecpm: "493.00" },
+    { date: "Apr 12, 2026", impressions: 35210, clicks: 3215, revenue: 920.00, ctr: "9.10%", ecpm: "495.00" },
+    { date: "Apr 13, 2026", impressions: 18280, clicks: 2235, revenue: 681.00, ctr: "12.23%", ecpm: "475.00" },
   ]
 
   const recentActivityData = [
-    { date: "Apr 13, 2026", impressions: 18432, clicks: 2234, revenue: 654.34, ctr: "6.67%", ecpm: "441.17" },
+    { date: "Apr 13, 2026", impressions: 18280, clicks: 2235, revenue: 681.00, ctr: "12.23%", ecpm: "475.00" },
+    { date: "Apr 12, 2026", impressions: 35210, clicks: 3215, revenue: 920.00, ctr: "9.10%", ecpm: "495.00" },
+    { date: "Apr 11, 2026", impressions: 33210, clicks: 3212, revenue: 915.00, ctr: "8.95%", ecpm: "493.00" },
+    { date: "Apr 10, 2026", impressions: 31210, clicks: 3210, revenue: 910.00, ctr: "8.80%", ecpm: "491.00" },
+    { date: "Apr 09, 2026", impressions: 31210, clicks: 3210, revenue: 910.00, ctr: "8.79%", ecpm: "491.66" },
+    { date: "Apr 08, 2026", impressions: 27203, clicks: 4543, revenue: 880.18, ctr: "7.02%", ecpm: "448.20" },
+    { date: "Apr 07, 2026", impressions: 27223, clicks: 4342, revenue: 940.21, ctr: "8.02%", ecpm: "492.10" },
+    { date: "Apr 06, 2026", impressions: 26283, clicks: 4472, revenue: 1080.78, ctr: "7.02%", ecpm: "498.00" },
+    { date: "Apr 05, 2026", impressions: 25200, clicks: 4172, revenue: 910.00, ctr: "6.56%", ecpm: "490.00" },
+    { date: "Apr 04, 2026", impressions: 18950, clicks: 2490, revenue: 170.10, ctr: "8.14%", ecpm: "480.00" },
+    { date: "Apr 03, 2026", impressions: 18790, clicks: 2410, revenue: 168.20, ctr: "7.83%", ecpm: "445.00" },
   ]
-
-  console.log("[v0] Recent Activity Data:", recentActivityData)
-  console.log("[v0] Print Log - 09 Apr 2026 - No print action")
-  console.log("[v0] Print Log - 10 Apr 2026 - Ready for Print")
 
   const latestActivity = {
     date: "Apr 13, 2026",
-    revenue: 654.34,
-    impressions: 18432,
-    clicks: 2234,
-    ctr: "6.67%",
-    ecpm: "441.17",
+    revenue: 681.00,
+    impressions: 18280,
+    clicks: 2235,
+    ctr: "12.23%",
+    ecpm: "475.00",
   }
 
-  const todayRevenue = 654.34
-  const todayImpressions = 18432
-  const todayClicks = 2234
-  const todayCTR = "6.67"
-  const todayECPM = "441.17"
+  const todayRevenue = 681.00
+  const todayImpressions = 18280
+  const todayClicks = 2235
+  const todayCTR = "12.23"
+  const todayECPM = "475.00"
 
   const hourlyData = [
     { hour: "00", revenue: 2, impressions: 400, clicks: 5, ctr: "1.25%", ecpm: "5.00" },
@@ -172,9 +189,9 @@ export function DashboardContent({ onNavigate }: DashboardContentProps) {
   ]
 
   const todayTotals = {
-    impressions: 18432,
-    clicks: 2234,
-    revenue: 654.34,
+    impressions: 17210,
+    clicks: 2008,
+    revenue: 570.66,
   }
 
   // This ensures all data aggregates to locked totals: $4,819.23 revenue, 32,687 clicks, 567,531 impressions
@@ -682,10 +699,10 @@ export function DashboardContent({ onNavigate }: DashboardContentProps) {
   }, [filteredReportData])
 
   // Display totals - use calculated when filters are active, otherwise use fixed totals
-  // FORCE UPDATE: Using final latest Mar 1, 2026 totals
-  const displayTotalRevenue = 15039.16 // April update Apr 12-13
-  const displayTotalClicks = 52883 // Updated total
-  const displayTotalImpressions = 1379981 // Updated total
+  // FORCE UPDATE: Using final latest Apr 13, 2026 totals
+  const displayTotalRevenue = 8902.75 // April update - This Month (includes Apr 10-13)
+  const displayTotalClicks = 35872 // Updated total for April data
+  const displayTotalImpressions = 1435288 // Updated total for April data
 
   const calculateWeekOverWeekGrowth = () => {
     const dataToCalculate = dashboardDateRange ? filteredReportData : allReportData
@@ -906,18 +923,18 @@ Top Country of Day: ${topCountryOfDay.country} ($${topCountryOfDay.revenue.toFix
 
 Country Revenue Breakdown:
 ${Object.entries(getCountryRevenueBreakdown())
-          .map(([country, revenue]) => `  ${country}: $${revenue.toFixed(2)}`)
-          .join("\n")}
+  .map(([country, revenue]) => `  ${country}: $${revenue.toFixed(2)}`)
+  .join("\n")}
 
 Best Hour Per Country:
 ${Object.entries(bestHourPerCountry_old)
-          .map(([country, data]) => `  ${country}: ${data.hour}:00`)
-          .join("\n")}
+  .map(([country, data]) => `  ${country}: ${data.hour}:00`)
+  .join("\n")}
 
 Top Keyword Per Country:
 ${Object.entries(topKeywordPerCountry_old)
-          .map(([country, data]) => `  ${country}: ${data.keyword}`)
-          .join("\n")}
+  .map(([country, data]) => `  ${country}: ${data.keyword}`)
+  .join("\n")}
 
 DETAILED DATA
 ${exportData.map((d) => `${d.Date} | Revenue: ${d.Revenue} | Impressions: ${d.Impressions} | Clicks: ${d.Clicks}`).join("\n")}
@@ -1002,7 +1019,7 @@ ${exportData.map((d) => `${d.Date} | Revenue: ${d.Revenue} | Impressions: ${d.Im
                   </div>
                   <div className="flex justify-between items-center">
                     <span className="text-sm text-gray-600">Last Month</span>
-                    <span className="text-lg font-semibold text-gray-700">$820.50</span>
+                    <span className="text-lg font-semibold text-gray-700">$2140.10</span>
                   </div>
                   <div className="flex justify-between items-center">
                     <span className="text-sm text-gray-600">Growth Rate</span>
@@ -1681,7 +1698,7 @@ ${exportData.map((d) => `${d.Date} | Revenue: ${d.Revenue} | Impressions: ${d.Im
                       <RecentActivityRow
                         key={index}
                         date={item.date}
-                        domain="eduinfomi.com"
+                        domain="xlawyerhub.com"
                         impressions={item.impressions}
                         clicks={item.clicks}
                         ctr={item.ctr}
