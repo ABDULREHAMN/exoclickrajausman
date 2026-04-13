@@ -79,12 +79,12 @@ export function DashboardContent({ onNavigate }: DashboardContentProps) {
     }
   }
 
-  const availableBalance = 12013.28
+  const availableBalance = 12013.28 + 3426.00
   const pendingBalance = 1410.00
-  const thisMonthEarnings = 5476.75
+  const thisMonthEarnings = 5476.75 + 3426.00
   const lastMonthEarnings = 2140.10
   const totalPayments = 1585.18
-  const totalEarnings = 8286.98
+  const totalEarnings = 8286.98 + 3426.00
   const nextWithdrawalDate = "14 Apr 2026"
 
   const allReportData = [
@@ -139,10 +139,18 @@ export function DashboardContent({ onNavigate }: DashboardContentProps) {
     { date: "Apr 07, 2026", impressions: 27223, clicks: 4342, revenue: 940.21, ctr: "8.02%", ecpm: "492.10" },
     { date: "Apr 08, 2026", impressions: 27203, clicks: 4543, revenue: 880.18, ctr: "7.02%", ecpm: "448.20" },
     { date: "Apr 09, 2026", impressions: 30285, clicks: 2572, revenue: 782.00, ctr: "8.79%", ecpm: "491.66" },
+    { date: "Apr 10, 2026", impressions: 31210, clicks: 3210, revenue: 910.00, ctr: "8.80%", ecpm: "491.00" },
+    { date: "Apr 11, 2026", impressions: 33210, clicks: 3212, revenue: 915.00, ctr: "8.95%", ecpm: "493.00" },
+    { date: "Apr 12, 2026", impressions: 35210, clicks: 3215, revenue: 920.00, ctr: "9.10%", ecpm: "495.00" },
+    { date: "Apr 13, 2026", impressions: 18280, clicks: 2235, revenue: 681.00, ctr: "12.23%", ecpm: "475.00" },
   ]
 
   const recentActivityData = [
-    { date: "Apr 09, 2026", impressions: 30285, clicks: 2572, revenue: 782.00, ctr: "8.79%", ecpm: "491.66" },
+    { date: "Apr 13, 2026", impressions: 18280, clicks: 2235, revenue: 681.00, ctr: "12.23%", ecpm: "475.00" },
+    { date: "Apr 12, 2026", impressions: 35210, clicks: 3215, revenue: 920.00, ctr: "9.10%", ecpm: "495.00" },
+    { date: "Apr 11, 2026", impressions: 33210, clicks: 3212, revenue: 915.00, ctr: "8.95%", ecpm: "493.00" },
+    { date: "Apr 10, 2026", impressions: 31210, clicks: 3210, revenue: 910.00, ctr: "8.80%", ecpm: "491.00" },
+    { date: "Apr 09, 2026", impressions: 31210, clicks: 3210, revenue: 910.00, ctr: "8.79%", ecpm: "491.66" },
     { date: "Apr 08, 2026", impressions: 27203, clicks: 4543, revenue: 880.18, ctr: "7.02%", ecpm: "448.20" },
     { date: "Apr 07, 2026", impressions: 27223, clicks: 4342, revenue: 940.21, ctr: "8.02%", ecpm: "492.10" },
     { date: "Apr 06, 2026", impressions: 26283, clicks: 4472, revenue: 1080.78, ctr: "7.02%", ecpm: "498.00" },
@@ -152,19 +160,19 @@ export function DashboardContent({ onNavigate }: DashboardContentProps) {
   ]
 
   const latestActivity = {
-    date: "Apr 09, 2026",
-    revenue: 782.00,
-    impressions: 30285,
-    clicks: 2572,
-    ctr: "8.79%",
-    ecpm: "491.66",
+    date: "Apr 13, 2026",
+    revenue: 681.00,
+    impressions: 18280,
+    clicks: 2235,
+    ctr: "12.23%",
+    ecpm: "475.00",
   }
 
-  const todayRevenue = 782.00
-  const todayImpressions = 30285
-  const todayClicks = 3572
-  const todayCTR = "11.79"
-  const todayECPM = "491.66"
+  const todayRevenue = 681.00
+  const todayImpressions = 18280
+  const todayClicks = 2235
+  const todayCTR = "12.23"
+  const todayECPM = "475.00"
 
   const hourlyData = [
     { hour: "00", revenue: 2, impressions: 400, clicks: 5, ctr: "1.25%", ecpm: "5.00" },
@@ -691,10 +699,10 @@ export function DashboardContent({ onNavigate }: DashboardContentProps) {
   }, [filteredReportData])
 
   // Display totals - use calculated when filters are active, otherwise use fixed totals
-  // FORCE UPDATE: Using final latest Mar 1, 2026 totals
-  const displayTotalRevenue = 5476.75 // April update - This Month
-  const displayTotalClicks = 29601 // Updated total for April data
-  const displayTotalImpressions = 174437 // Updated total for April data
+  // FORCE UPDATE: Using final latest Apr 13, 2026 totals
+  const displayTotalRevenue = 8902.75 // April update - This Month (includes Apr 10-13)
+  const displayTotalClicks = 35872 // Updated total for April data
+  const displayTotalImpressions = 1435288 // Updated total for April data
 
   const calculateWeekOverWeekGrowth = () => {
     const dataToCalculate = dashboardDateRange ? filteredReportData : allReportData
