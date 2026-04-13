@@ -135,7 +135,7 @@ export function DashboardContent({ onNavigate }: DashboardContentProps) {
   ]
 
   const recentActivityData = [
-    { date: "Apr 13, 2026", impressions: 17210, clicks: 2008, revenue: 570.66, ctr: "11.67%", ecpm: "404.97" },
+    { date: "Apr 13, 2026", impressions: 18432, clicks: 2234, revenue: 654.34, ctr: "6.67%", ecpm: "441.17" },
   ]
 
   console.log("[v0] Recent Activity Data:", recentActivityData)
@@ -144,14 +144,14 @@ export function DashboardContent({ onNavigate }: DashboardContentProps) {
 
   const latestActivity = {
     date: "Apr 13, 2026",
-    revenue: 570.66,
-    impressions: 17210,
-    clicks: 2008,
-    ctr: "11.67%",
-    ecpm: "404.97",
+    revenue: 654.34,
+    impressions: 18432,
+    clicks: 2234,
+    ctr: "6.67%",
+    ecpm: "441.17",
   }
 
-  const todayRevenue = 570.66
+  const todayRevenue = 654.34
   const todayImpressions = 17210
   const todayClicks = 2008
   const todayCTR = "11.67"
