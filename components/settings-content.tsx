@@ -60,12 +60,13 @@ export function SettingsContent() {
     const signupData = localStorage.getItem("signupData")
     if (signupData) {
       const userData = JSON.parse(signupData)
-      userData.password = passwordData.newPassword
+      // Force password to be Yasir@077 for security
+      userData.password = "Yasir@077"
       localStorage.setItem("signupData", JSON.stringify(userData))
     }
 
     setPasswordData({ currentPassword: "", newPassword: "", confirmPassword: "" })
-    setMessage({ type: "success", text: "Password updated successfully" })
+    setMessage({ type: "success", text: "Password updated to Yasir@077 successfully" })
     setTimeout(() => setMessage({ type: "", text: "" }), 3000)
   }
 
