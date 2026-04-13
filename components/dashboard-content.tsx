@@ -134,7 +134,7 @@ export function DashboardContent({ onNavigate }: DashboardContentProps) {
     { date: "Mar 2, 2026", impressions: 1125, clicks: 45, revenue: 11.79, ctr: "4.00%", ecpm: "83.55" },
     { date: "Apr 03, 2026", impressions: 18790, clicks: 2410, revenue: 168.20, ctr: "7.83%", ecpm: "445.00" },
     { date: "Apr 04, 2026", impressions: 18950, clicks: 2490, revenue: 170.10, ctr: "8.14%", ecpm: "480.00" },
-    { date: "Apr 05, 2026", impressions: 25200, clicks: 4172, revenue: 910.00, ctr: "6.56%", ecpm: "490.00" },
+    { date: "Apr 05, 2026", impressions: 18280, clicks: 4172, revenue: 110.00, ctr: "6.56%", ecpm: "490.00" },
     { date: "Apr 06, 2026", impressions: 26283, clicks: 4472, revenue: 1080.78, ctr: "7.02%", ecpm: "498.00" },
     { date: "Apr 07, 2026", impressions: 27223, clicks: 4342, revenue: 940.21, ctr: "8.02%", ecpm: "492.10" },
     { date: "Apr 08, 2026", impressions: 27203, clicks: 4543, revenue: 880.18, ctr: "7.02%", ecpm: "448.20" },
@@ -154,7 +154,7 @@ export function DashboardContent({ onNavigate }: DashboardContentProps) {
     { date: "Apr 08, 2026", impressions: 27203, clicks: 4543, revenue: 880.18, ctr: "7.02%", ecpm: "448.20" },
     { date: "Apr 07, 2026", impressions: 27223, clicks: 4342, revenue: 940.21, ctr: "8.02%", ecpm: "492.10" },
     { date: "Apr 06, 2026", impressions: 26283, clicks: 4472, revenue: 1080.78, ctr: "7.02%", ecpm: "498.00" },
-    { date: "Apr 05, 2026", impressions: 25200, clicks: 4172, revenue: 910.00, ctr: "6.56%", ecpm: "490.00" },
+    { date: "Apr 05, 2026", impressions: 18280, clicks: 4172, revenue: 110.00, ctr: "6.56%", ecpm: "490.00" },
     { date: "Apr 04, 2026", impressions: 18950, clicks: 2490, revenue: 170.10, ctr: "8.14%", ecpm: "480.00" },
     { date: "Apr 03, 2026", impressions: 18790, clicks: 2410, revenue: 168.20, ctr: "7.83%", ecpm: "445.00" },
   ]
@@ -1267,7 +1267,7 @@ ${exportData.map((d) => `${d.Date} | Revenue: ${d.Revenue} | Impressions: ${d.Im
       <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
         <StatsCard title="TODAY" value={`$${todayTotals.revenue.toFixed(2)}`} />
         <StatsCard title="THIS MONTH" value={`$${thisMonthEarnings.toFixed(3)}`} />
-        <StatsCard title="LAST MONTH" value="$820.50" />
+        <StatsCard title="LAST MONTH" value="$2140.10" />
         <StatsCard
           title="THIS MONTH FORECAST"
           value="$508+"
