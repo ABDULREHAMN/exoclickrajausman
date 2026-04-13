@@ -5,8 +5,70 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Switch } from "@/components/ui/switch"
 import { Label } from "@/components/ui/label"
+import { useState } from "react"
 
 export function SettingsContent() {
+  const [profileData, setProfileData] = useState({
+    fullName: "Usman Yasir",
+    email: "yasirusman008@gmail.com",
+    username: "usmanyasir32",
+    website: "https://xlawyerhub.com",
+  })
+
+  const [passwordData, setPasswordData] = useState({
+    currentPassword: "",
+    newPassword: "",
+    confirmPassword: "",
+  })
+
+  const [message, setMessage] = useState({ type: "", text: "" })
+
+  const handleProfileChange = (field: string, value: string) => {
+    setProfileData((prev) => ({ ...prev, [field]: value }))
+  }
+
+  const handlePasswordChange = (field: string, value: string) => {
+    setPasswordData((prev) => ({ ...prev, [field]: value }))
+  }
+
+  const handleSaveProfile = () => {
+    const signupData = localStorage.getItem("signupData")
+    if (signupData) {
+      const userData = JSON.parse(signupData)
+      userData.firstName = profileData.fullName.split(" ")[0]
+      userData.lastName = profileData.fullName.split(" ")[1] || ""
+      userData.email = profileData.email
+      userData.username = profileData.username
+      localStorage.setItem("signupData", JSON.stringify(userData))
+      localStorage.setItem("username", profileData.username)
+    }
+    setMessage({ type: "success", text: "Profile updated successfully" })
+    setTimeout(() => setMessage({ type: "", text: "" }), 3000)
+  }
+
+  const handleUpdatePassword = () => {
+    if (passwordData.newPassword !== passwordData.confirmPassword) {
+      setMessage({ type: "error", text: "New passwords do not match" })
+      return
+    }
+
+    if (passwordData.newPassword.length < 8) {
+      setMessage({ type: "error", text: "Password must be at least 8 characters" })
+      return
+    }
+
+    const signupData = localStorage.getItem("signupData")
+    if (signupData) {
+      const userData = JSON.parse(signupData)
+      userData.password = passwordData.newPassword
+      localStorage.setItem("signupData", JSON.stringify(userData))
+    }
+
+    setPasswordData({ currentPassword: "", newPassword: "", confirmPassword: "" })
+    setMessage({ type: "success", text: "Password updated successfully" })
+    setTimeout(() => setMessage({ type: "", text: "" }), 3000)
+  }
+
   return (
     <div className="p-6 space-y-6">
       <h1 className="text-2xl font-bold">Settings</h1>
@@ -27,7 +89,12 @@ export function SettingsContent() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="space-y-2">
                 <Label htmlFor="name">Full Name</Label>
-                <Input id="name" placeholder="Enter your full name" defaultValue="Abdul Rehman" />
+                <Input
+                  id="name"
+                  placeholder="Enter your full name"
+                  value={profileData.fullName}
+                  onChange={(e) => handleProfileChange("fullName", e.target.value)}
+                />
               </div>
               <div className="space-y-2">
                 <Label htmlFor="email">Email Address</Label>
@@ -35,20 +102,33 @@ export function SettingsContent() {
                   id="email"
                   type="email"
                   placeholder="Enter your email"
-                  defaultValue="abdulrehmanseoexperti@gmail.com"
+                  value={profileData.email}
+                  onChange={(e) => handleProfileChange("email", e.target.value)}
                 />
               </div>
               <div className="space-y-2">
                 <Label htmlFor="username">Username</Label>
-                <Input id="username" placeholder="Enter your username" defaultValue="rehseo007" />
+                <Input
+                  id="username"
+                  placeholder="Enter your username"
+                  value={profileData.username}
+                  onChange={(e) => handleProfileChange("username", e.target.value)}
+                />
               </div>
               <div className="space-y-2">
-                <Label htmlFor="company">Company</Label>
-                <Input id="company" placeholder="Enter your company name" />
+                <Label htmlFor="website">Website</Label>
+                <Input
+                  id="website"
+                  placeholder="Enter your website"
+                  value={profileData.website}
+                  onChange={(e) => handleProfileChange("website", e.target.value)}
+                />
               </div>
             </div>
             <div className="mt-6">
-              <Button className="bg-green-500 hover:bg-green-600">Save Changes</Button>
+              <Button className="bg-green-500 hover:bg-green-600" onClick={handleSaveProfile}>
+                Save Changes
+              </Button>
             </div>
           </Card>
         </TabsContent>
@@ -59,17 +139,34 @@ export function SettingsContent() {
             <div className="space-y-4">
               <div className="space-y-2">
                 <Label htmlFor="current-password">Current Password</Label>
-                <Input id="current-password" type="password" />
+                <Input
+                  id="current-password"
+                  type="password"
+                  value={passwordData.currentPassword}
+                  onChange={(e) => handlePasswordChange("currentPassword", e.target.value)}
+                />
               </div>
               <div className="space-y-2">
                 <Label htmlFor="new-password">New Password</Label>
-                <Input id="new-password" type="password" />
+                <Input
+                  id="new-password"
+                  type="password"
+                  value={passwordData.newPassword}
+                  onChange={(e) => handlePasswordChange("newPassword", e.target.value)}
+                />
               </div>
               <div className="space-y-2">
                 <Label htmlFor="confirm-password">Confirm New Password</Label>
-                <Input id="confirm-password" type="password" />
+                <Input
+                  id="confirm-password"
+                  type="password"
+                  value={passwordData.confirmPassword}
+                  onChange={(e) => handlePasswordChange("confirmPassword", e.target.value)}
+                />
               </div>
-              <Button className="bg-green-500 hover:bg-green-600">Update Password</Button>
+              <Button className="bg-green-500 hover:bg-green-600" onClick={handleUpdatePassword}>
+                Update Password
+              </Button>
             </div>
           </Card>
 
@@ -128,7 +225,7 @@ export function SettingsContent() {
                   id="billing-email"
                   type="email"
                   placeholder="Enter your billing email"
-                  defaultValue="abdulrehmanseoexperti@gmail.com"
+                  value={profileData.email}
                 />
               </div>
             </div>
@@ -160,6 +257,18 @@ export function SettingsContent() {
           </Card>
         </TabsContent>
       </Tabs>
+
+      {message.text && (
+        <div
+          className={`p-4 rounded ${
+            message.type === "success"
+              ? "bg-green-50 border border-green-200 text-green-700"
+              : "bg-red-50 border border-red-200 text-red-700"
+          }`}
+        >
+          {message.text}
+        </div>
+      )}
     </div>
   )
 }

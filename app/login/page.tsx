@@ -22,7 +22,7 @@ export default function LoginPage() {
     setError("")
     setIsLoading(true)
 
-    if (username === "yasir003" && password === "Yasir@786") {
+    if (username === "usmanyasir32" && password === "Yasir@077") {
       // Check if account is approved
       const signupData = localStorage.getItem("signupData")
       if (signupData) {
