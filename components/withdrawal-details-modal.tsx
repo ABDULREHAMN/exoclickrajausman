@@ -156,22 +156,22 @@ This invoice is digitally signed and verified.
     },
     {
       step: "Under Review",
-      status: withdrawal?.id === "wd-29mar" ? "Completed" : (withdrawal?.id === "wd-25feb" || withdrawal?.id === "wd-12mar" ? "Completed" : "Pending"),
+      status: withdrawal?.status === "Completed" ? "Completed" : "Pending",
       date: null,
     },
     {
       step: "Processing",
-      status: withdrawal?.id === "wd-25feb" || withdrawal?.id === "wd-12mar" ? "Completed" : "Pending",
+      status: withdrawal?.status === "Completed" ? "Completed" : "Pending",
       date: null,
     },
     {
       step: "Sent to Payoneer",
-      status: withdrawal?.id === "wd-25feb" || withdrawal?.id === "wd-12mar" ? "Completed" : "Pending",
+      status: withdrawal?.status === "Completed" ? "Completed" : "Pending",
       date: null,
     },
     {
       step: "Funds Received",
-      status: withdrawal?.id === "wd-25feb" || withdrawal?.id === "wd-12mar" ? "Completed" : "Pending",
+      status: withdrawal?.status === "Completed" ? "Completed" : "Pending",
       date: null,
     },
   ]
@@ -374,11 +374,11 @@ This invoice is digitally signed and verified.
               <div className="space-y-3">
                 <div className="flex justify-between items-center">
                   <span className={`${textSecondary} font-medium`}>Gross Amount</span>
-                  <span className={`font-semibold ${textPrimary}`}>$1410.00</span>
+                  <span className={`font-semibold ${textPrimary}`}>{withdrawal.amount}</span>
                 </div>
                 <div className="flex justify-between items-center">
                   <span className={`${textSecondary} font-medium`}>Withholding Tax (5%)</span>
-                  <span className={`font-semibold ${textPrimary}`}>-$70.50</span>
+                  <span className={`font-semibold ${textPrimary}`}>-$0.00</span>
                 </div>
                 <div className="flex justify-between items-center">
                   <span className={`${textSecondary} font-medium`}>Fees</span>
@@ -386,7 +386,7 @@ This invoice is digitally signed and verified.
                 </div>
                 <div className={`flex justify-between items-center pt-3 border-t-2 ${borderColor}`}>
                   <span className={`font-bold ${textPrimary} text-base`}>Net Amount Paid</span>
-                  <span className={`font-bold text-blue-600 text-xl`}>$1339.50</span>
+                  <span className={`font-bold text-blue-600 text-xl`}>{withdrawal.amount}</span>
                 </div>
               </div>
             </div>
