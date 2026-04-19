@@ -171,19 +171,19 @@ export function DashboardContent({ onNavigate }: DashboardContentProps) {
   ]
 
   const latestActivity = {
-    date: "Apr 18, 2026",
-    revenue: 915.35,
-    impressions: 35280,
-    clicks: 3435,
-    ctr: "9.73%",
-    ecpm: "409.00",
+    date: "Apr 19, 2026",
+    revenue: 786.77,
+    impressions: 19875,
+    clicks: 2546,
+    ctr: "8.90%",
+    ecpm: "498.00",
   }
 
-  const todayRevenue = 915.35
-  const todayImpressions = 35280
-  const todayClicks = 3435
-  const todayCTR = "9.73"
-  const todayECPM = "409.00"
+  const todayRevenue = 786.77
+  const todayImpressions = 19875
+  const todayClicks = 2546
+  const todayCTR = "8.90"
+  const todayECPM = "498.00"
 
   const hourlyData = [
     { hour: "00", revenue: 2, impressions: 400, clicks: 5, ctr: "1.25%", ecpm: "5.00" },
@@ -200,9 +200,9 @@ export function DashboardContent({ onNavigate }: DashboardContentProps) {
   ]
 
   const todayTotals = {
-    impressions: 35280,
-    clicks: 3435,
-    revenue: 915.35,
+    impressions: 19875,
+    clicks: 2546,
+    revenue: 786.77,
   }
 
   // This ensures all data aggregates to locked totals: $4,819.23 revenue, 32,687 clicks, 567,531 impressions
