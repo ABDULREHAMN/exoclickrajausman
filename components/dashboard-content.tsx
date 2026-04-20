@@ -132,7 +132,37 @@ export function DashboardContent({ onNavigate }: DashboardContentProps) {
     { date: "Feb 28, 2026", impressions: 13453, clicks: 341, revenue: 83.12, ctr: "2.53%", ecpm: "92.77" },
     { date: "Mar 1, 2026", impressions: 13425, clicks: 365, revenue: 81.55, ctr: "2.72%", ecpm: "82.23" },
     { date: "Mar 2, 2026", impressions: 1125, clicks: 45, revenue: 11.79, ctr: "4.00%", ecpm: "83.55" },
+    { date: "Mar 3, 2026", impressions: 13623, clicks: 348, revenue: 86.55, ctr: "2.55%", ecpm: "86.91" },
+    { date: "Mar 4, 2026", impressions: 13253, clicks: 354, revenue: 86.32, ctr: "2.67%", ecpm: "84.22" },
+    { date: "Mar 5, 2026", impressions: 9876, clicks: 356, revenue: 86.44, ctr: "3.60%", ecpm: "87.66" },
+    { date: "Mar 6, 2026", impressions: 12525, clicks: 321, revenue: 82.66, ctr: "2.56%", ecpm: "82.11" },
+    { date: "Mar 7, 2026", impressions: 8732, clicks: 198, revenue: 50.22, ctr: "2.27%", ecpm: "82.11" },
+    { date: "Mar 8, 2026", impressions: 10234, clicks: 276, revenue: 75.43, ctr: "2.70%", ecpm: "81.99" },
+    { date: "Mar 9, 2026", impressions: 11543, clicks: 298, revenue: 81.22, ctr: "2.58%", ecpm: "83.45" },
+    { date: "Mar 10, 2026", impressions: 12456, clicks: 315, revenue: 84.67, ctr: "2.53%", ecpm: "85.12" },
+    { date: "Mar 11, 2026", impressions: 13234, clicks: 338, revenue: 87.33, ctr: "2.55%", ecpm: "85.99" },
+    { date: "Mar 12, 2026", impressions: 12876, clicks: 325, revenue: 85.44, ctr: "2.52%", ecpm: "84.88" },
+    { date: "Mar 13, 2026", impressions: 11765, clicks: 298, revenue: 80.33, ctr: "2.53%", ecpm: "82.77" },
+    { date: "Mar 14, 2026", impressions: 13456, clicks: 342, revenue: 88.99, ctr: "2.54%", ecpm: "85.33" },
+    { date: "Mar 15, 2026", impressions: 12234, clicks: 310, revenue: 83.22, ctr: "2.53%", ecpm: "84.44" },
+    { date: "Mar 16, 2026", impressions: 11987, clicks: 302, revenue: 81.55, ctr: "2.52%", ecpm: "83.66" },
+    { date: "Mar 17, 2026", impressions: 13123, clicks: 334, revenue: 86.77, ctr: "2.55%", ecpm: "85.22" },
+    { date: "Mar 18, 2026", impressions: 12567, clicks: 319, revenue: 84.33, ctr: "2.54%", ecpm: "84.99" },
     { date: "Mar 19, 2026", impressions: 13980, clicks: 2215, revenue: 525.00, ctr: "15.85%", ecpm: "409.00" },
+    { date: "Mar 20, 2026", impressions: 14234, clicks: 356, revenue: 93.22, ctr: "2.50%", ecpm: "85.11" },
+    { date: "Mar 21, 2026", impressions: 13567, clicks: 343, revenue: 89.44, ctr: "2.53%", ecpm: "84.77" },
+    { date: "Mar 22, 2026", impressions: 12987, clicks: 329, revenue: 86.33, ctr: "2.54%", ecpm: "84.22" },
+    { date: "Mar 23, 2026", impressions: 13445, clicks: 340, revenue: 88.77, ctr: "2.53%", ecpm: "85.44" },
+    { date: "Mar 24, 2026", impressions: 12654, clicks: 321, revenue: 84.22, ctr: "2.54%", ecpm: "84.11" },
+    { date: "Mar 25, 2026", impressions: 11876, clicks: 301, revenue: 80.33, ctr: "2.53%", ecpm: "83.88" },
+    { date: "Mar 26, 2026", impressions: 13234, clicks: 336, revenue: 87.66, ctr: "2.54%", ecpm: "85.33" },
+    { date: "Mar 27, 2026", impressions: 12543, clicks: 318, revenue: 83.99, ctr: "2.53%", ecpm: "84.55" },
+    { date: "Mar 28, 2026", impressions: 12876, clicks: 326, revenue: 85.77, ctr: "2.53%", ecpm: "84.99" },
+    { date: "Mar 29, 2026", impressions: 13456, clicks: 342, revenue: 89.22, ctr: "2.54%", ecpm: "85.66" },
+    { date: "Mar 30, 2026", impressions: 12234, clicks: 310, revenue: 82.33, ctr: "2.53%", ecpm: "84.33" },
+    { date: "Mar 31, 2026", impressions: 13123, clicks: 333, revenue: 87.11, ctr: "2.54%", ecpm: "85.11" },
+    { date: "Apr 01, 2026", impressions: 14567, clicks: 370, revenue: 96.44, ctr: "2.54%", ecpm: "85.99" },
+    { date: "Apr 02, 2026", impressions: 13234, clicks: 335, revenue: 88.55, ctr: "2.53%", ecpm: "85.22" },
     { date: "Apr 03, 2026", impressions: 18790, clicks: 2410, revenue: 168.20, ctr: "7.83%", ecpm: "445.00" },
     { date: "Apr 04, 2026", impressions: 18950, clicks: 2490, revenue: 170.10, ctr: "8.14%", ecpm: "480.00" },
     { date: "Apr 05, 2026", impressions: 18280, clicks: 4172, revenue: 110.00, ctr: "6.56%", ecpm: "490.00" },
@@ -307,7 +337,7 @@ export function DashboardContent({ onNavigate }: DashboardContentProps) {
     return distributeDataByHour(allReportData)
   }, [])
 
-  // Apply filters to hourly data
+  // Apply date filter logic - fixed to use current date (Apr 20, 2026)
   const applyFiltersToHourlyData = (
     data: typeof fullHourlyData,
     dateRange: number | null, // Use null for "All Time"
@@ -316,20 +346,24 @@ export function DashboardContent({ onNavigate }: DashboardContentProps) {
   ) => {
     let filtered = [...data]
 
-    // Apply date filter
-    const now = new Date("2026-02-20") // Using Feb 20 as reference date for filtering
+    // Apply date filter - using Apr 20, 2026 as current date
+    const now = new Date("2026-04-20")
     if (dateRange === 7) {
       const sevenDaysAgo = new Date(now)
       sevenDaysAgo.setDate(sevenDaysAgo.getDate() - 7)
-      filtered = filtered.filter((d) => new Date(d.date) >= sevenDaysAgo)
-    } else if (dateRange === 14) {
-      const fourteenDaysAgo = new Date(now)
-      fourteenDaysAgo.setDate(fourteenDaysAgo.getDate() - 14)
-      filtered = filtered.filter((d) => new Date(d.date) >= fourteenDaysAgo)
+      filtered = filtered.filter((d) => new Date(d.date) >= sevenDaysAgo && new Date(d.date) <= now)
     } else if (dateRange === 30) {
       const thirtyDaysAgo = new Date(now)
       thirtyDaysAgo.setDate(thirtyDaysAgo.getDate() - 30)
-      filtered = filtered.filter((d) => new Date(d.date) >= thirtyDaysAgo)
+      filtered = filtered.filter((d) => new Date(d.date) >= thirtyDaysAgo && new Date(d.date) <= now)
+    } else if (dateRange === 90) {
+      const ninetyDaysAgo = new Date(now)
+      ninetyDaysAgo.setDate(ninetyDaysAgo.getDate() - 90)
+      filtered = filtered.filter((d) => new Date(d.date) >= ninetyDaysAgo && new Date(d.date) <= now)
+    } else if (dateRange === 180) {
+      const sixMonthsAgo = new Date(now)
+      sixMonthsAgo.setMonth(sixMonthsAgo.getMonth() - 6)
+      filtered = filtered.filter((d) => new Date(d.date) >= sixMonthsAgo && new Date(d.date) <= now)
     }
 
     // Apply country filter
