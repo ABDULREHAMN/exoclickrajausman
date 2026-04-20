@@ -190,7 +190,7 @@ export function PaymentContent({ onNavigate }: PaymentContentProps) {
   const totalPayments = 2744.18
   const thisMonthEarnings = 10529.00
   const lastMonthEarnings = 2910.11
-  const nextWithdrawalDate = "14 Apr 2026"
+  const nextWithdrawalDate = "29 Apr 2026"
   
   console.log("[v0] Payment Values - Total Payments:", totalPayments, "Available Balance:", availableBalance, "Pending:", pendingBalance)
 
