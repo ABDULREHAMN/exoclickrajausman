@@ -52,7 +52,7 @@ export function DashboardContent({ onNavigate }: DashboardContentProps) {
   const [chartView, setChartView] = useState<"daily" | "weekly" | "monthly">("daily")
   // const [dateRange, setDateRange] = useState<7 | 14 | 30 | null>(null) // REMOVED
 
-  const [dashboardDateRange, setDashboardDateRange] = useState<7 | 14 | 30 | null>(null)
+  const [dashboardDateRange, setDashboardDateRange] = useState<7 | 14 | 30 | null>(7)
   // Updated to array-based multi-select for countries and devices
   const [selectedCountries, setSelectedCountries] = useState<string[]>(["All"])
   const [selectedDevices, setSelectedDevices] = useState<string[]>(["All"])
@@ -633,21 +633,19 @@ export function DashboardContent({ onNavigate }: DashboardContentProps) {
   }
 
   const applyDashboardFilters = (data: typeof allReportData) => {
+    if (!dashboardDateRange) return data
+
     let filtered = [...data]
 
-    // Apply date range filter from dashboard filters
-    if (dashboardDateRange) {
-      const cutoffDate = new Date()
-      cutoffDate.setDate(cutoffDate.getDate() - dashboardDateRange)
-      filtered = filtered.filter((item) => {
-        const itemDate = new Date(item.date)
-        return itemDate >= cutoffDate
-      })
-    }
+    // Apply date range filter using Apr 20, 2026 as reference date
+    const referenceDate = new Date("2026-04-20")
+    const cutoffDate = new Date(referenceDate)
+    cutoffDate.setDate(cutoffDate.getDate() - dashboardDateRange)
 
-    // Note: Country and device filters are present in UI but data is aggregated
-    // Filters don't actually segment data as it's all combined
-    // Filter state is maintained for UI consistency per requirements
+    filtered = filtered.filter((item) => {
+      const itemDate = new Date(item.date)
+      return itemDate >= cutoffDate && itemDate <= referenceDate
+    })
 
     return filtered
   }
@@ -749,9 +747,32 @@ export function DashboardContent({ onNavigate }: DashboardContentProps) {
 
   // Display totals - use calculated when filters are active, otherwise use fixed totals
   // FORCE UPDATE: Using final latest Apr 13, 2026 totals
-  const displayTotalRevenue = 8902.75 // April update - This Month (includes Apr 10-13)
-  const displayTotalClicks = 35872 // Updated total for April data
-  const displayTotalImpressions = 1435288 // Updated total for April data
+  // Calculate totals based on filtered data (Last 7 Days by default)
+  const calculateDisplayTotals = () => {
+    const dataToUse = dashboardDateRange ? filteredReportData : allReportData
+    
+    const totalRevenue = dataToUse.reduce((sum, item) => {
+      const revenue = typeof item.revenue === 'number' ? item.revenue : Number.parseFloat(item.revenue.toString())
+      return sum + revenue
+    }, 0)
+
+    const totalClicks = dataToUse.reduce((sum, item) => {
+      const clicks = typeof item.clicks === 'number' ? item.clicks : Number.parseInt(item.clicks.toString())
+      return sum + clicks
+    }, 0)
+
+    const totalImpressions = dataToUse.reduce((sum, item) => {
+      const impressions = typeof item.impressions === 'number' ? item.impressions : Number.parseInt(item.impressions.toString())
+      return sum + impressions
+    }, 0)
+
+    return { totalRevenue, totalClicks, totalImpressions }
+  }
+
+  const totals = calculateDisplayTotals()
+  const displayTotalRevenue = totals.totalRevenue
+  const displayTotalClicks = totals.totalClicks
+  const displayTotalImpressions = totals.totalImpressions
 
   const calculateWeekOverWeekGrowth = () => {
     const dataToCalculate = dashboardDateRange ? filteredReportData : allReportData
