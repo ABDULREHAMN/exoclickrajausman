@@ -81,7 +81,7 @@ export function PaymentContent({ onNavigate }: PaymentContentProps) {
       date: "29 Mar 2026",
       method: "Payoneer",
       amount: "$1180.20",
-      status: "Pending",
+      status: "Completed",
       details: "abdul.rehman.soashraf@gmail.com",
       grossAmount: "$1180.20",
       fee: "$0.00",
@@ -93,7 +93,7 @@ export function PaymentContent({ onNavigate }: PaymentContentProps) {
       date: "12 Mar 2026",
       method: "Payoneer",
       amount: "$961.00",
-      status: "Pending",
+      status: "Completed",
       details: "abdul.rehman.soashraf@gmail.com",
       grossAmount: "$961.00",
       fee: "$0.00",
@@ -146,43 +146,8 @@ export function PaymentContent({ onNavigate }: PaymentContentProps) {
   })
 
   useEffect(() => {
-    const checkPendingWithdrawals = () => {
-      const now = new Date()
-      const updatedHistory = withdrawalHistory.map((withdrawal) => {
-        if (withdrawal.status === "Pending" && withdrawal.method === "Payoneer") {
-          const withdrawalDate = new Date(withdrawal.date)
-          const daysPassed = Math.floor((now.getTime() - withdrawalDate.getTime()) / (1000 * 60 * 60 * 24))
-
-          if (daysPassed >= 8) {
-            // Auto-complete after 8 days
-            const completedDate = new Date(withdrawalDate)
-            completedDate.setDate(completedDate.getDate() + 8)
-
-            return {
-              ...withdrawal,
-              status: "Completed" as const,
-              completedDate: completedDate.toISOString().split("T")[0],
-            }
-          }
-        }
-        return withdrawal
-      })
-
-      // Check if any status changed
-      const hasChanges = updatedHistory.some((w, i) => w.status !== withdrawalHistory[i].status)
-      if (hasChanges) {
-        setWithdrawalHistory(updatedHistory)
-        // System notification (no UI change, just console log)
-        console.log("[v0] Your Payoneer withdrawal has been completed successfully.")
-      }
-    }
-
-    // Check on mount and every hour
-    checkPendingWithdrawals()
-    const interval = setInterval(checkPendingWithdrawals, 60 * 60 * 1000)
-
-    return () => clearInterval(interval)
-  }, [withdrawalHistory])
+    // Manual mode only - no auto-processing
+  }, [])
 
   const availableBalance = 7608.43
   const pendingBalance = 11310.00
@@ -191,8 +156,6 @@ export function PaymentContent({ onNavigate }: PaymentContentProps) {
   const thisMonthEarnings = 10529.00
   const lastMonthEarnings = 2910.11
   const nextWithdrawalDate = "29 Apr 2026"
-  
-  console.log("[v0] Payment Values - Total Payments:", totalPayments, "Available Balance:", availableBalance, "Pending:", pendingBalance)
 
   const paymentEntries = []
 
