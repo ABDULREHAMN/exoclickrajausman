@@ -149,7 +149,7 @@ export function PaymentContent({ onNavigate }: PaymentContentProps) {
     // Manual mode only - no auto-processing
   }, [])
 
-  const availableBalance = 7608.43
+  const availableBalance = 7849.54
   const pendingBalance = 11310.00
   const totalEarnings = 15039.16
   const totalPayments = 2744.18
