@@ -79,12 +79,12 @@ export function DashboardContent({ onNavigate }: DashboardContentProps) {
     }
   }
 
-  const availableBalance = 6613.01 + 995.10 + 215.00 + 245.00 + 181.35 + 70.00
+  const availableBalance = 6613.01 + 995.10 + 215.00 + 245.00 + 181.35 + 70.00 + 280.00
   const pendingBalance = 11310.00
-  const thisMonthEarnings = 5476.75 + 3426.00 + 569.39 + 917.30 + 1647.00 + 1462.00 + 1425.00 + 1425.00 + 1440.35 + 995.10 + 215.00 + 245.00 + 181.35 + 70.00
+  const thisMonthEarnings = 5476.75 + 3426.00 + 569.39 + 917.30 + 1647.00 + 1462.00 + 1425.00 + 1425.00 + 1440.35 + 995.10 + 215.00 + 245.00 + 181.35 + 70.00 + 280.00
   const lastMonthEarnings = 2140.10
   const totalPayments = 1585.18
-  const totalEarnings = 14040.33 + 569.39 + 917.30 + 1647.00 + 1462.00 + 1425.00 + 1425.00 + 1440.35 + 995.10 + 215.00 + 245.00 + 181.35 + 70.00
+  const totalEarnings = 14040.33 + 569.39 + 917.30 + 1647.00 + 1462.00 + 1425.00 + 1425.00 + 1440.35 + 995.10 + 215.00 + 245.00 + 181.35 + 70.00 + 280.00
   const nextWithdrawalDate = "14 Apr 2026"
 
   const allReportData = [
@@ -184,11 +184,13 @@ export function DashboardContent({ onNavigate }: DashboardContentProps) {
     { date: "Apr 21, 2026", impressions: 18980, clicks: 455, revenue: 155.00, ctr: "2.40%", ecpm: "360.00" },
     { date: "Apr 22, 2026", impressions: 18280, clicks: 460, revenue: 146.35, ctr: "2.50%", ecpm: "360.35" },
     { date: "Apr 23, 2026", impressions: 17760, clicks: 137, revenue: 165.00, ctr: "1.88%", ecpm: "350.00" },
-    { date: "Apr 24, 2026", impressions: 7280, clicks: 137, revenue: 40.00, ctr: "1.88%", ecpm: "365.80" },
+    { date: "Apr 24, 2026", impressions: 18280, clicks: 440, revenue: 160.00, ctr: "2.41%", ecpm: "367.00" },
+    { date: "Apr 25, 2026", impressions: 8280, clicks: 130, revenue: 45.00, ctr: "10.14%", ecpm: "360.00" },
   ]
 
   const recentActivityData = [
-    { date: "Apr 24, 2026", impressions: 7280, clicks: 137, revenue: 40.00, ctr: "1.88%", ecpm: "365.80" },
+    { date: "Apr 25, 2026", impressions: 8280, clicks: 130, revenue: 45.00, ctr: "10.14%", ecpm: "360.00" },
+    { date: "Apr 24, 2026", impressions: 18280, clicks: 440, revenue: 160.00, ctr: "2.41%", ecpm: "367.00" },
     { date: "Apr 23, 2026", impressions: 17760, clicks: 137, revenue: 165.00, ctr: "1.88%", ecpm: "350.00" },
     { date: "Apr 22, 2026", impressions: 18280, clicks: 460, revenue: 146.35, ctr: "2.50%", ecpm: "360.35" },
     { date: "Apr 21, 2026", impressions: 18980, clicks: 455, revenue: 155.00, ctr: "2.40%", ecpm: "360.00" },
@@ -213,19 +215,19 @@ export function DashboardContent({ onNavigate }: DashboardContentProps) {
   ]
 
   const latestActivity = {
-    date: "Apr 24, 2026",
-    revenue: 40.00,
-    impressions: 7280,
-    clicks: 137,
-    ctr: "1.88%",
-    ecpm: "365.80",
+    date: "Apr 25, 2026",
+    revenue: 45.00,
+    impressions: 8280,
+    clicks: 130,
+    ctr: "10.14%",
+    ecpm: "360.00",
   }
 
-  const todayRevenue = 40.00
-  const todayImpressions = 7280
-  const todayClicks = 137
-  const todayCTR = "1.88"
-  const todayECPM = "365.80"
+  const todayRevenue = 45.00
+  const todayImpressions = 8280
+  const todayClicks = 130
+  const todayCTR = "10.14"
+  const todayECPM = "360.00"
 
   const hourlyData = [
     { hour: "00", revenue: 2, impressions: 400, clicks: 5, ctr: "1.25%", ecpm: "5.00" },
@@ -242,9 +244,9 @@ export function DashboardContent({ onNavigate }: DashboardContentProps) {
   ]
 
   const todayTotals = {
-    impressions: 7280,
-    clicks: 137,
-    revenue: 40.00,
+    impressions: 8280,
+    clicks: 130,
+    revenue: 45.00,
   }
 
   // This ensures all data aggregates to locked totals: $4,819.23 revenue, 32,687 clicks, 567,531 impressions
