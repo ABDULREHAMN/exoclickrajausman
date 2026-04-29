@@ -35,11 +35,10 @@ import { WithdrawalDetailsModal, type WithdrawalDetails } from "./withdrawal-det
 
 interface PaymentMethodData {
   id: string
-  type: "payoneer" | "bank" | "crypto"
+  type: "safepal" | "bank" | "crypto"
   accountHolderName: string
-  email: string
-  country: string
-  currency: string
+  walletAddress: string
+  network: string
   status: "Active" | "Pending Approval" | "Inactive"
   isDefault: boolean
   priority: number
@@ -52,9 +51,9 @@ interface PaymentContentProps {
 
 export function PaymentContent({ onNavigate }: PaymentContentProps) {
   const [withdrawAmount, setWithdrawAmount] = useState("")
-  const [paymentMethod, setPaymentMethod] = useState("payoneer")
-  const [paypalEmail, setPaypalEmail] = useState("")
-  const [payoneerEmail, setPayoneerEmail] = useState("")
+  const [paymentMethod, setPaymentMethod] = useState("safepal")
+  const [cryptoEmail, setCryptoEmail] = useState("")
+  const [safepalAddress, setSafepalAddress] = useState("0x60b407E52C41C51C9bAec7B2E62A8a6b9A900917")
   const [showError, setShowError] = useState(false)
   const [errorMessage, setErrorMessage] = useState("")
   const [selectedWithdrawal, setSelectedWithdrawal] = useState<WithdrawalDetails | null>(null)
@@ -67,10 +66,10 @@ export function PaymentContent({ onNavigate }: PaymentContentProps) {
     {
       id: "wd-14apr",
       date: "14 Apr 2026",
-      method: "Payoneer",
+      method: "SafePal Wallet (BEP20)",
       amount: "$11310.00",
       status: "Failed",
-      details: "abdul.rehman.soashraf@gmail.com",
+      details: "0x60b4...0917",
       grossAmount: "$11310.00",
       fee: "$0.00",
       feePercentage: 0,
@@ -81,10 +80,10 @@ export function PaymentContent({ onNavigate }: PaymentContentProps) {
     {
       id: "wd-29mar",
       date: "29 Mar 2026",
-      method: "Payoneer",
+      method: "SafePal Wallet (BEP20)",
       amount: "$1180.20",
       status: "Completed",
-      details: "abdul.rehman.soashraf@gmail.com",
+      details: "0x60b4...0917",
       grossAmount: "$1180.20",
       fee: "$0.00",
       feePercentage: 0,
@@ -93,10 +92,10 @@ export function PaymentContent({ onNavigate }: PaymentContentProps) {
     {
       id: "wd-12mar",
       date: "12 Mar 2026",
-      method: "Payoneer",
+      method: "SafePal Wallet (BEP20)",
       amount: "$961.00",
       status: "Completed",
-      details: "abdul.rehman.soashraf@gmail.com",
+      details: "0x60b4...0917",
       grossAmount: "$961.00",
       fee: "$0.00",
       feePercentage: 0,
@@ -105,10 +104,10 @@ export function PaymentContent({ onNavigate }: PaymentContentProps) {
     {
       id: "wd-25feb",
       date: "25 Feb 2026",
-      method: "Payoneer",
+      method: "SafePal Wallet (BEP20)",
       amount: "$603.72",
       status: "Completed",
-      details: "abdul.rehman.soashraf@gmail.com",
+      details: "0x60b4...0917",
       grossAmount: "$603.72",
       fee: "$0.00",
       feePercentage: 0,
