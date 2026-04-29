@@ -380,17 +380,24 @@ Generated on: ${new Date().toLocaleDateString()}
     )
   }
 
-  const getMethodTypeLabel = (type: string) => {
+  const getMethodTypeLabel = (type: string, accountHolderName?: string) => {
     switch (type) {
       case "payoneer":
         return "Payoneer"
       case "bank":
         return "Bank Transfer"
       case "crypto":
-        return "Crypto"
+        return accountHolderName || "Crypto"
       default:
         return type
     }
+  }
+
+  const getTruncatedWalletAddress = (address: string) => {
+    if (address.startsWith("0x") && address.length > 10) {
+      return `${address.substring(0, 6)}...${address.substring(address.length - 4)}`
+    }
+    return address
   }
 
   const getStatusBadgeColor = (status: string) => {
@@ -642,7 +649,7 @@ Generated on: ${new Date().toLocaleDateString()}
                             {method.type === "crypto" && <CreditCard className="h-5 w-5 text-orange-600" />}
                             <div>
                               <div className="flex items-center space-x-2">
-                                <span className="font-semibold text-gray-800">{getMethodTypeLabel(method.type)}</span>
+                                <span className="font-semibold text-gray-800">{getMethodTypeLabel(method.type, method.accountHolderName)}</span>
                                 {method.isDefault && (
                                   <Badge className="bg-blue-100 text-blue-800 text-xs">
                                     <Star className="h-3 w-3 mr-1" />
@@ -653,8 +660,17 @@ Generated on: ${new Date().toLocaleDateString()}
                                   {method.status}
                                 </Badge>
                               </div>
-                              <p className="text-sm text-gray-600">{method.accountHolderName}</p>
-                              <p className="text-xs text-gray-500">{method.email}</p>
+                              {method.type === "crypto" ? (
+                                <>
+                                  <p className="text-sm text-gray-600">Network: {method.currency}</p>
+                                  <p className="text-xs text-gray-500">Wallet: {getTruncatedWalletAddress(method.email)}</p>
+                                </>
+                              ) : (
+                                <>
+                                  <p className="text-sm text-gray-600">{method.accountHolderName}</p>
+                                  <p className="text-xs text-gray-500">{method.email}</p>
+                                </>
+                              )}
                             </div>
                           </div>
                         </div>
