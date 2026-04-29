@@ -10,7 +10,7 @@ import { Label } from "@/components/ui/label"
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 
-type PaymentMethodType = "safepal" | "crypto" | "bank" | "cepto"
+type PaymentMethodType = "payoneer" | "safepal" | "crypto" | "bank" | "cepto"
 
 interface PaymentMethod {
   id: string
@@ -29,6 +29,18 @@ export function PaymentMethods() {
   const [paymentMethods, setPaymentMethods] = useState<PaymentMethod[]>([
     {
       id: "pm_1",
+      type: "payoneer",
+      displayName: "Payoneer",
+      details: "abdul.rehman.soashraf@gmail.com",
+      verified: true,
+      isDefault: false,
+      addedDate: "Feb 11, 2026",
+      icon: "payoneer",
+      network: "Abdul Rehman",
+      status: "active",
+    },
+    {
+      id: "pm_2",
       type: "safepal",
       displayName: "SafePal Wallet",
       details: "0x60b4...0917",
@@ -406,6 +418,8 @@ interface PaymentMethodCardProps {
 function PaymentMethodCard({ method }: PaymentMethodCardProps) {
   const getIcon = () => {
     switch (method.type) {
+      case "payoneer":
+        return <Wallet className="h-5 w-5 text-green-600" />
       case "safepal":
         return <Bitcoin className="h-5 w-5 text-orange-600" />
       case "crypto":
@@ -420,10 +434,10 @@ function PaymentMethodCard({ method }: PaymentMethodCardProps) {
   }
 
   const getStatusBadge = () => {
-    if (method.verified || method.type === "safepal") {
+    if (method.verified || method.type === "safepal" || method.type === "payoneer") {
       return <Badge className="bg-green-100 text-green-800">Verified</Badge>
     }
-    if (method.status === "pending" && method.type !== "safepal") {
+    if (method.status === "pending" && method.type !== "safepal" && method.type !== "payoneer") {
       return <Badge className="bg-yellow-100 text-yellow-800">Pending Verification</Badge>
     }
     return <Badge className="bg-gray-100 text-gray-800">Inactive</Badge>
