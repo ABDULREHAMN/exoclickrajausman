@@ -10,10 +10,10 @@ export function WithdrawalHistory() {
   const withdrawals = [
     {
       date: "12 Mar 2026",
-      method: "SafePal Wallet (BEP20)",
+      method: "Payoneer",
       amount: 1012.00,
       status: "processing",
-      details: "0x60b4...0917",
+      details: "abdul.rehman.soashraf@gmail.com",
       isVerified: true,
       grossAmount: 1012.00,
       fee: 0,
@@ -21,16 +21,16 @@ export function WithdrawalHistory() {
       statusProgression: [
         { step: "Withdrawal Requested", status: "pending", duration: "0-1 days" },
         { step: "Under Review", status: "pending", duration: "1-2 days" },
-        { step: "Sent to SafePal", status: "pending", duration: "1-2 days" },
+        { step: "Sent to Payoneer", status: "pending", duration: "1-2 days" },
         { step: "Funds Received", status: "pending", duration: "2-3 days" },
       ],
     },
     {
       date: "25 Feb 2026",
-      method: "SafePal Wallet (BEP20)",
+      method: "Payoneer",
       amount: 573.18,
       status: "confirmed",
-      details: "0x60b4...0917",
+      details: "abdul.rehman.soashraf@gmail.com",
       isVerified: true,
       grossAmount: 573.18,
       fee: 0,
