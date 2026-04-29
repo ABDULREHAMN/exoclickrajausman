@@ -29,7 +29,7 @@ export function NotificationProvider({ children }: { children: ReactNode }) {
       id: "withdrawal-failed-14apr",
       title: "Withdrawal Failed",
       message:
-        "Your withdrawal of $11310.00 failed due to network issue. Funds have been returned to your balance. New default method: SafePal Wallet (BEP20).",
+        "Your withdrawal of $11310.00 failed due to Payoneer limit issue. Funds have been returned to your balance.",
       timestamp: new Date(Date.now() - 1 * 1000), // 1 second ago
       isRead: false,
       type: "warning",

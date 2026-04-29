@@ -35,10 +35,11 @@ import { WithdrawalDetailsModal, type WithdrawalDetails } from "./withdrawal-det
 
 interface PaymentMethodData {
   id: string
-  type: "safepal" | "bank" | "crypto"
+  type: "payoneer" | "bank" | "crypto"
   accountHolderName: string
-  walletAddress: string
-  network: string
+  email: string
+  country: string
+  currency: string
   status: "Active" | "Pending Approval" | "Inactive"
   isDefault: boolean
   priority: number
@@ -51,9 +52,9 @@ interface PaymentContentProps {
 
 export function PaymentContent({ onNavigate }: PaymentContentProps) {
   const [withdrawAmount, setWithdrawAmount] = useState("")
-  const [paymentMethod, setPaymentMethod] = useState("safepal")
-  const [cryptoEmail, setCryptoEmail] = useState("")
-  const [safepalAddress, setSafepalAddress] = useState("0x60b407E52C41C51C9bAec7B2E62A8a6b9A900917")
+  const [paymentMethod, setPaymentMethod] = useState("payoneer")
+  const [paypalEmail, setPaypalEmail] = useState("")
+  const [payoneerEmail, setPayoneerEmail] = useState("")
   const [showError, setShowError] = useState(false)
   const [errorMessage, setErrorMessage] = useState("")
   const [selectedWithdrawal, setSelectedWithdrawal] = useState<WithdrawalDetails | null>(null)
@@ -124,20 +125,9 @@ export function PaymentContent({ onNavigate }: PaymentContentProps) {
       country: "Pakistan",
       currency: "USD",
       status: "Active",
-      isDefault: false,
+      isDefault: true,
       priority: 1,
       addedDate: "Feb 11, 2026",
-    },
-    {
-      id: "pm-2",
-      type: "crypto",
-      accountHolderName: "SafePal Wallet",
-      walletAddress: "0x60b407E52C41C51C9bAec7B2E62A8a6b9A900917",
-      network: "BEP20",
-      status: "Active",
-      isDefault: true,
-      priority: 2,
-      addedDate: "Apr 28, 2026",
     },
   ])
 
