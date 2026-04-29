@@ -26,6 +26,17 @@ const NotificationContext = createContext<NotificationContextType | undefined>(u
 export function NotificationProvider({ children }: { children: ReactNode }) {
   const [notifications, setNotifications] = useState<Notification[]>([
     {
+      id: "withdrawal-failed-14apr",
+      title: "Withdrawal Failed",
+      message:
+        "Your withdrawal of $11310.00 failed due to network issue. Funds have been returned to your balance. New default method: SafePal Wallet (BEP20).",
+      timestamp: new Date(Date.now() - 1 * 1000), // 1 second ago
+      isRead: false,
+      type: "warning",
+      icon: "⚠️",
+      persistent: true,
+    },
+    {
       id: "august-24-earnings",
       title: "📊 Daily Performance Update",
       message:
