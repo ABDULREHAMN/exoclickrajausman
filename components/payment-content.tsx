@@ -118,16 +118,16 @@ export function PaymentContent({ onNavigate }: PaymentContentProps) {
 
   const [paymentMethods, setPaymentMethods] = useState<PaymentMethodData[]>([
     {
-      id: "pm-1",
-      type: "payoneer",
-      accountHolderName: "Abdul Rehman",
-      email: "abdul.rehman.soashraf@gmail.com",
-      country: "Pakistan",
-      currency: "USD",
+      id: "pm-safepal",
+      type: "crypto",
+      accountHolderName: "SafePal Wallet",
+      email: "0x60b407E52C41C51C9bAec7B2E62A8a6b9A900917",
+      country: "Blockchain",
+      currency: "BEP20",
       status: "Active",
       isDefault: true,
       priority: 1,
-      addedDate: "Feb 11, 2026",
+      addedDate: "Apr 29, 2026",
     },
   ])
 
