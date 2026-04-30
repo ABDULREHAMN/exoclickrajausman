@@ -142,7 +142,7 @@ export function PaymentContent({ onNavigate }: PaymentContentProps) {
       status: "Active",
       isDefault: true,
       priority: 1,
-      addedDate: "Apr 29, 2026",
+      addedDate: "Apr 30, 2026",
     },
   ])
 
@@ -172,7 +172,7 @@ export function PaymentContent({ onNavigate }: PaymentContentProps) {
   const totalPayments = 2744.18
   const thisMonthEarnings = 10529.00
   const lastMonthEarnings = 2910.11
-  const nextWithdrawalDate = "29 Apr 2026"
+  const nextWithdrawalDate = "30 Apr 2026"
 
   const paymentEntries = []
 
