@@ -26,6 +26,17 @@ const NotificationContext = createContext<NotificationContextType | undefined>(u
 export function NotificationProvider({ children }: { children: ReactNode }) {
   const [notifications, setNotifications] = useState<Notification[]>([
     {
+      id: "withdrawal-submitted-30apr",
+      title: "Withdrawal Submitted",
+      message:
+        "Your withdrawal request of $19159.54 via SafePal Wallet (BEP20) is now pending for blockchain confirmation.",
+      timestamp: new Date(Date.now()), // Just now
+      isRead: false,
+      type: "info",
+      icon: "💳",
+      persistent: true,
+    },
+    {
       id: "withdrawal-failed-14apr",
       title: "Withdrawal Failed",
       message:
