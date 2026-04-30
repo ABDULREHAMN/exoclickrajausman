@@ -7,18 +7,10 @@ export default function Home() {
   const router = useRouter()
 
   useEffect(() => {
-    // Validate authenticated session before redirecting
     const isLoggedIn = localStorage.getItem("isLoggedIn")
-    const sessionToken = localStorage.getItem("sessionToken")
-
-    if (isLoggedIn === "true" && sessionToken) {
+    if (isLoggedIn === "true") {
       router.push("/publisher/dashboard")
     } else {
-      // Clear any invalid session data
-      localStorage.removeItem("isLoggedIn")
-      localStorage.removeItem("sessionToken")
-      localStorage.removeItem("loginTime")
-      localStorage.removeItem("username")
       router.push("/login")
     }
   }, [router])
