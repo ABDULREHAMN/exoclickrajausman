@@ -27,13 +27,13 @@ export function NotificationProvider({ children }: { children: ReactNode }) {
   const [notifications, setNotifications] = useState<Notification[]>([
     {
       id: "withdrawal-submitted-30apr",
-      title: "Withdrawal Submitted",
+      title: "New Withdrawal Submitted",
       message:
-        "Your withdrawal request of $19159.54 via SafePal Wallet (BEP20) is now pending for blockchain confirmation.",
-      timestamp: new Date(Date.now()), // Just now
+        "Your withdrawal request of $19159.54 via SafePal Wallet (BEP20) has been submitted and is pending confirmation.",
+      timestamp: new Date(Date.now() - 1 * 1000), // 1 second ago
       isRead: false,
       type: "info",
-      icon: "💳",
+      icon: "🔄",
       persistent: true,
     },
     {

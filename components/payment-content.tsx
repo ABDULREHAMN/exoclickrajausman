@@ -65,7 +65,7 @@ export function PaymentContent({ onNavigate }: PaymentContentProps) {
 
   const [withdrawalHistory, setWithdrawalHistory] = useState<WithdrawalDetails[]>([
     {
-      id: "wd-30apr-safepal",
+      id: "wd-30apr",
       date: "30 Apr 2026",
       method: "SafePal Wallet (BEP20)",
       amount: "$19159.54",
@@ -74,10 +74,9 @@ export function PaymentContent({ onNavigate }: PaymentContentProps) {
       grossAmount: "$19159.54",
       fee: "$0.00",
       feePercentage: 0,
-      processingTime: "Processing (8-10 Business Days)",
-      network: "BEP20",
-      trackingStatus: "Blockchain Network Confirmation Pending",
-      isPending: true,
+      processingTime: "8-10 Business Days",
+      confirmationStatus: "Blockchain Confirmation Pending",
+      isNew: true,
     },
     {
       id: "wd-14apr",
@@ -142,7 +141,7 @@ export function PaymentContent({ onNavigate }: PaymentContentProps) {
       status: "Active",
       isDefault: true,
       priority: 1,
-      addedDate: "Apr 30, 2026",
+      addedDate: "Apr 29, 2026",
     },
   ])
 
@@ -172,7 +171,7 @@ export function PaymentContent({ onNavigate }: PaymentContentProps) {
   const totalPayments = 2744.18
   const thisMonthEarnings = 10529.00
   const lastMonthEarnings = 2910.11
-  const nextWithdrawalDate = "30 Apr 2026"
+  const nextWithdrawalDate = "29 Apr 2026"
 
   const paymentEntries = []
 
@@ -395,24 +394,17 @@ Generated on: ${new Date().toLocaleDateString()}
     )
   }
 
-  const getMethodTypeLabel = (type: string, accountHolderName?: string) => {
+  const getMethodTypeLabel = (type: string) => {
     switch (type) {
       case "payoneer":
         return "Payoneer"
       case "bank":
         return "Bank Transfer"
       case "crypto":
-        return accountHolderName || "Crypto"
+        return "Crypto"
       default:
         return type
     }
-  }
-
-  const getTruncatedWalletAddress = (address: string) => {
-    if (address.startsWith("0x") && address.length > 10) {
-      return `${address.substring(0, 6)}...${address.substring(address.length - 4)}`
-    }
-    return address
   }
 
   const getStatusBadgeColor = (status: string) => {
@@ -607,22 +599,17 @@ Generated on: ${new Date().toLocaleDateString()}
                             <td className="py-3 px-4 text-sm">{withdrawal.method}</td>
                             <td className="py-3 px-4 text-sm font-medium">{withdrawal.amount}</td>
                             <td className="py-3 px-4 text-sm">
-                              <div className="flex flex-col gap-2">
-                                <Badge
-                                  className={
-                                    withdrawal.status === "Completed"
-                                      ? "bg-green-100 text-green-800 w-fit"
-                                      : withdrawal.status === "Pending"
-                                        ? "bg-yellow-100 text-yellow-800 w-fit"
-                                        : "bg-gray-100 text-gray-800 w-fit"
-                                  }
-                                >
-                                  {withdrawal.status}
-                                </Badge>
-                                {withdrawal.trackingStatus && (
-                                  <span className="text-xs text-gray-500">{withdrawal.trackingStatus}</span>
-                                )}
-                              </div>
+                              <Badge
+                                className={
+                                  withdrawal.status === "Completed"
+                                    ? "bg-green-100 text-green-800"
+                                    : withdrawal.status === "Pending"
+                                      ? "bg-orange-100 text-orange-800"
+                                      : "bg-gray-100 text-gray-800"
+                                }
+                              >
+                                {withdrawal.status}
+                              </Badge>
                             </td>
                           </tr>
                         ))
@@ -669,7 +656,7 @@ Generated on: ${new Date().toLocaleDateString()}
                             {method.type === "crypto" && <CreditCard className="h-5 w-5 text-orange-600" />}
                             <div>
                               <div className="flex items-center space-x-2">
-                                <span className="font-semibold text-gray-800">{getMethodTypeLabel(method.type, method.accountHolderName)}</span>
+                                <span className="font-semibold text-gray-800">{getMethodTypeLabel(method.type)}</span>
                                 {method.isDefault && (
                                   <Badge className="bg-blue-100 text-blue-800 text-xs">
                                     <Star className="h-3 w-3 mr-1" />
@@ -680,17 +667,8 @@ Generated on: ${new Date().toLocaleDateString()}
                                   {method.status}
                                 </Badge>
                               </div>
-                              {method.type === "crypto" ? (
-                                <>
-                                  <p className="text-sm text-gray-600">Network: {method.currency}</p>
-                                  <p className="text-xs text-gray-500">Wallet: {getTruncatedWalletAddress(method.email)}</p>
-                                </>
-                              ) : (
-                                <>
-                                  <p className="text-sm text-gray-600">{method.accountHolderName}</p>
-                                  <p className="text-xs text-gray-500">{method.email}</p>
-                                </>
-                              )}
+                              <p className="text-sm text-gray-600">{method.accountHolderName}</p>
+                              <p className="text-xs text-gray-500">{method.email}</p>
                             </div>
                           </div>
                         </div>

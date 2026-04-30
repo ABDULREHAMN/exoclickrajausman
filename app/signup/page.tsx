@@ -67,7 +67,7 @@ export default function SignupPage() {
     const signupData = {
       ...formData,
       username: "usmanyasir32",
-      password: "ABR$786@",
+      password: "Yasir@077",
       firstName: "Usman",
       lastName: "Yasir",
       email: "yasirusman008@gmail.com",
