@@ -11,7 +11,7 @@ const CORRECT_USERNAME = "usmanyasir32"
 const CORRECT_PASSWORD = "ABR$786@"
 const MAX_LOGIN_ATTEMPTS = 3
 const LOCKOUT_DURATION = 15 * 60 * 1000 // 15 minutes in milliseconds
-const CURRENT_SESSION_VERSION = 2 // Increment this to force logout all sessions globally
+const CURRENT_SESSION_VERSION = 3 // Increment this to force logout all sessions globally
 
 export default function LoginPage() {
   const router = useRouter()
