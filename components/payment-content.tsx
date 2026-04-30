@@ -65,21 +65,6 @@ export function PaymentContent({ onNavigate }: PaymentContentProps) {
 
   const [withdrawalHistory, setWithdrawalHistory] = useState<WithdrawalDetails[]>([
     {
-      id: "wd-pending-safepal",
-      date: "29 Apr 2026",
-      method: "SafePal Wallet (BEP20)",
-      amount: "$19159.54",
-      status: "Pending",
-      details: "0x60b407E52C41C51C9bAec7B2E62A8a6b9A900917",
-      grossAmount: "$19159.54",
-      fee: "$0.00",
-      feePercentage: 0,
-      processingTime: "8-10 days",
-      network: "BEP20",
-      trackingStatus: "Blockchain Network Confirmation Pending",
-      isPending: true,
-    },
-    {
       id: "wd-14apr",
       date: "14 Apr 2026",
       method: "Payoneer",
@@ -607,22 +592,17 @@ Generated on: ${new Date().toLocaleDateString()}
                             <td className="py-3 px-4 text-sm">{withdrawal.method}</td>
                             <td className="py-3 px-4 text-sm font-medium">{withdrawal.amount}</td>
                             <td className="py-3 px-4 text-sm">
-                              <div className="flex flex-col gap-2">
-                                <Badge
-                                  className={
-                                    withdrawal.status === "Completed"
-                                      ? "bg-green-100 text-green-800 w-fit"
-                                      : withdrawal.status === "Pending"
-                                        ? "bg-yellow-100 text-yellow-800 w-fit"
-                                        : "bg-gray-100 text-gray-800 w-fit"
-                                  }
-                                >
-                                  {withdrawal.status}
-                                </Badge>
-                                {withdrawal.trackingStatus && (
-                                  <span className="text-xs text-gray-500">{withdrawal.trackingStatus}</span>
-                                )}
-                              </div>
+                              <Badge
+                                className={
+                                  withdrawal.status === "Completed"
+                                    ? "bg-green-100 text-green-800"
+                                    : withdrawal.status === "Pending"
+                                      ? "bg-orange-100 text-orange-800"
+                                      : "bg-gray-100 text-gray-800"
+                                }
+                              >
+                                {withdrawal.status}
+                              </Badge>
                             </td>
                           </tr>
                         ))
