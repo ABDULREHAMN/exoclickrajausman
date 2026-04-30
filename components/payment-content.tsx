@@ -80,6 +80,21 @@ export function PaymentContent({ onNavigate }: PaymentContentProps) {
       isPending: true,
     },
     {
+      id: "wd-pending-safepal",
+      date: "29 Apr 2026",
+      method: "SafePal Wallet (BEP20)",
+      amount: "$19159.54",
+      status: "Pending",
+      details: "0x60b407E52C41C51C9bAec7B2E62A8a6b9A900917",
+      grossAmount: "$19159.54",
+      fee: "$0.00",
+      feePercentage: 0,
+      processingTime: "8-10 days",
+      network: "BEP20",
+      trackingStatus: "Blockchain Network Confirmation Pending",
+      isPending: true,
+    },
+    {
       id: "wd-14apr",
       date: "14 Apr 2026",
       method: "Payoneer",
@@ -142,7 +157,7 @@ export function PaymentContent({ onNavigate }: PaymentContentProps) {
       status: "Active",
       isDefault: true,
       priority: 1,
-      addedDate: "Apr 30, 2026",
+      addedDate: "Apr 29, 2026",
     },
   ])
 
@@ -172,7 +187,7 @@ export function PaymentContent({ onNavigate }: PaymentContentProps) {
   const totalPayments = 2744.18
   const thisMonthEarnings = 10529.00
   const lastMonthEarnings = 2910.11
-  const nextWithdrawalDate = "30 Apr 2026"
+  const nextWithdrawalDate = "29 Apr 2026"
 
   const paymentEntries = []
 

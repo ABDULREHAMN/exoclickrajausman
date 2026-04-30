@@ -34,7 +34,7 @@ export function PaymentMethods() {
       details: "0x60b407E52C41C51C9bAec7B2E62A8a6b9A900917",
       verified: true,
       isDefault: true,
-      addedDate: "Apr 30, 2026",
+      addedDate: "Apr 29, 2026",
       icon: "crypto",
       network: "BEP20",
       status: "active",
