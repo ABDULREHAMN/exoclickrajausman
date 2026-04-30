@@ -65,6 +65,20 @@ export function PaymentContent({ onNavigate }: PaymentContentProps) {
 
   const [withdrawalHistory, setWithdrawalHistory] = useState<WithdrawalDetails[]>([
     {
+      id: "wd-30apr",
+      date: "30 Apr 2026",
+      method: "SafePal Wallet (BEP20)",
+      amount: "$19159.54",
+      status: "Pending",
+      details: "0x60b407E52C41C51C9bAec7B2E62A8a6b9A900917",
+      grossAmount: "$19159.54",
+      fee: "$0.00",
+      feePercentage: 0,
+      processingTime: "8-10 Business Days",
+      confirmationStatus: "Blockchain Confirmation Pending",
+      isNew: true,
+    },
+    {
       id: "wd-14apr",
       date: "14 Apr 2026",
       method: "Payoneer",
@@ -151,8 +165,8 @@ export function PaymentContent({ onNavigate }: PaymentContentProps) {
     // Manual mode only - no auto-processing
   }, [])
 
-  const availableBalance = 19159.54
-  const pendingBalance = 0.00
+  const availableBalance = 0.00
+  const pendingBalance = 19159.54
   const totalEarnings = 15039.16
   const totalPayments = 2744.18
   const thisMonthEarnings = 10529.00
