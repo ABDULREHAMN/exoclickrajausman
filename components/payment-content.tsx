@@ -65,6 +65,20 @@ export function PaymentContent({ onNavigate }: PaymentContentProps) {
 
   const [withdrawalHistory, setWithdrawalHistory] = useState<WithdrawalDetails[]>([
     {
+      id: "wd-30apr-trc20",
+      date: "30 Apr 2026",
+      method: "Crypto Wallet (TRC20)",
+      amount: "$19156.54",
+      status: "Pending",
+      details: "TZBnF1YuMZZxRFCtQrdUk695dh8cXdSMm1",
+      grossAmount: "$19156.54",
+      fee: "$0.00",
+      feePercentage: 0,
+      processingTime: "Processing (8-10 Business Days)",
+      confirmationStatus: "Blockchain Confirmation Pending",
+      isNew: true,
+    },
+    {
       id: "wd-30apr",
       date: "30 Apr 2026",
       method: "SafePal Wallet (BEP20)",
@@ -132,6 +146,18 @@ export function PaymentContent({ onNavigate }: PaymentContentProps) {
 
   const [paymentMethods, setPaymentMethods] = useState<PaymentMethodData[]>([
     {
+      id: "pm-trc20",
+      type: "crypto",
+      accountHolderName: "TRC20 Wallet",
+      email: "TZBnF1YuMZZxRFCtQrdUk695dh8cXdSMm1",
+      country: "Blockchain",
+      currency: "TRC20",
+      status: "Active",
+      isDefault: true,
+      priority: 1,
+      addedDate: "Apr 30, 2026",
+    },
+    {
       id: "pm-safepal",
       type: "crypto",
       accountHolderName: "SafePal Wallet",
@@ -139,8 +165,8 @@ export function PaymentContent({ onNavigate }: PaymentContentProps) {
       country: "Blockchain",
       currency: "BEP20",
       status: "Active",
-      isDefault: true,
-      priority: 1,
+      isDefault: false,
+      priority: 2,
       addedDate: "Apr 29, 2026",
     },
   ])
@@ -165,8 +191,8 @@ export function PaymentContent({ onNavigate }: PaymentContentProps) {
     // Manual mode only - no auto-processing
   }, [])
 
-  const availableBalance = 0.00
-  const pendingBalance = 19159.54
+  const availableBalance = 3.00
+  const pendingBalance = 19156.54
   const totalEarnings = 15039.16
   const totalPayments = 2744.18
   const thisMonthEarnings = 10529.00

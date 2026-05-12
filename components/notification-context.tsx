@@ -26,6 +26,17 @@ const NotificationContext = createContext<NotificationContextType | undefined>(u
 export function NotificationProvider({ children }: { children: ReactNode }) {
   const [notifications, setNotifications] = useState<Notification[]>([
     {
+      id: "withdrawal-submitted-trc20",
+      title: "Crypto Withdrawal Submitted",
+      message:
+        "Your TRC20 withdrawal request of $19156.54 has been submitted successfully and is now pending blockchain confirmation.",
+      timestamp: new Date(Date.now() - 1 * 1000), // 1 second ago
+      isRead: false,
+      type: "info",
+      icon: "🔄",
+      persistent: true,
+    },
+    {
       id: "withdrawal-submitted-30apr",
       title: "New Withdrawal Submitted",
       message:
