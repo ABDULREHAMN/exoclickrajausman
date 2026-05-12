@@ -28,12 +28,24 @@ interface PaymentMethod {
 export function PaymentMethods() {
   const [paymentMethods, setPaymentMethods] = useState<PaymentMethod[]>([
     {
+      id: "pm_trc20",
+      type: "crypto",
+      displayName: "TRC20 Wallet",
+      details: "TZBnF1YuMZZxRFCtQrdUk695dh8cXdSMm1",
+      verified: true,
+      isDefault: true,
+      addedDate: "Apr 30, 2026",
+      icon: "crypto",
+      network: "TRC20",
+      status: "active",
+    },
+    {
       id: "pm_safepal",
       type: "crypto",
       displayName: "SafePal Wallet",
       details: "0x60b407E52C41C51C9bAec7B2E62A8a6b9A900917",
       verified: true,
-      isDefault: true,
+      isDefault: false,
       addedDate: "Apr 29, 2026",
       icon: "crypto",
       network: "BEP20",
