@@ -10,14 +10,13 @@ const reportData = {
   "Last 7 Days": {
     "All Countries": {
       "All Devices": [
-        { date: "Apr 29, 2026", impressions: "210", clicks: "5", ctr: "2.38%", ecpm: "$80.00", revenue: "$2.00" },
-        { date: "Apr 28, 2026", impressions: "18,145", clicks: "435", ctr: "2.40%", ecpm: "$360.00", revenue: "$155.00" },
-        { date: "Apr 27, 2026", impressions: "18,322", clicks: "431", ctr: "2.33%", ecpm: "$365.30", revenue: "$153.33" },
-        { date: "Apr 26, 2026", impressions: "18,210", clicks: "425", ctr: "2.33%", ecpm: "$365.64", revenue: "$144.00" },
-        { date: "Apr 25, 2026", impressions: "18,135", clicks: "415", ctr: "2.29%", ecpm: "$360.00", revenue: "$137.00" },
-        { date: "Apr 24, 2026", impressions: "18,280", clicks: "440", ctr: "2.41%", ecpm: "$367.00", revenue: "$160.00" },
-        { date: "Apr 23, 2026", impressions: "17,760", clicks: "137", ctr: "1.88%", ecpm: "$350.00", revenue: "$165.00" },
-        { date: "Apr 22, 2026", impressions: "18,280", clicks: "460", ctr: "2.50%", ecpm: "$360.35", revenue: "$146.35" },
+        { date: "May 12, 2026", impressions: "0", clicks: "0", ctr: "0.00%", ecpm: "$78.76", revenue: "$0.00" },
+        { date: "May 11, 2026", impressions: "12,601", clicks: "348", ctr: "2.76%", ecpm: "$87.44", revenue: "$86.90" },
+        { date: "May 10, 2026", impressions: "652", clicks: "7", ctr: "1.07%", ecpm: "$45.77", revenue: "$9.33" },
+        { date: "May 9, 2026", impressions: "12,652", clicks: "349", ctr: "2.76%", ecpm: "$87.90", revenue: "$87.71" },
+        { date: "May 8, 2026", impressions: "0", clicks: "0", ctr: "0.00%", ecpm: "$0.00", revenue: "$0.00" },
+        { date: "May 7, 2026", impressions: "12,612", clicks: "349", ctr: "2.77%", ecpm: "$87.55", revenue: "$86.24" },
+        { date: "May 6, 2026", impressions: "12,588", clicks: "348", ctr: "2.76%", ecpm: "$87.11", revenue: "$85.07" },
       ],
       Desktop: [
         { date: "Mar 7, 2026", impressions: "8,732", clicks: "198", ctr: "2.27%", ecpm: "$82.11", revenue: "$50.22" },
