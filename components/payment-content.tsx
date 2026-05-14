@@ -68,14 +68,14 @@ export function PaymentContent({ onNavigate }: PaymentContentProps) {
       id: "wd-30apr-trc20",
       date: "30 Apr 2026",
       method: "Crypto Wallet (TRC20)",
-      amount: "$19156.54",
-      status: "Pending",
+      amount: "$9756.78",
+      status: "Under Review",
       details: "TZBnF1YuMZZxRFCtQrdUk695dh8cXdSMm1",
-      grossAmount: "$19156.54",
+      grossAmount: "$9756.78",
       fee: "$0.00",
       feePercentage: 0,
       processingTime: "Processing (8-10 Business Days)",
-      confirmationStatus: "Blockchain Confirmation Pending",
+      confirmationStatus: "Withdrawal temporarily on hold for review processing.",
       isNew: true,
     },
     {
@@ -96,14 +96,14 @@ export function PaymentContent({ onNavigate }: PaymentContentProps) {
       id: "wd-14apr",
       date: "14 Apr 2026",
       method: "Payoneer",
-      amount: "$11310.00",
-      status: "Failed",
+      amount: "$7915.22",
+      status: "Declined",
       details: "abdul.rehman.soashraf@gmail.com",
-      grossAmount: "$11310.00",
+      grossAmount: "$7915.22",
       fee: "$0.00",
       feePercentage: 0,
       processingTime: "8-10 days",
-      failureReason: "Payoneer Limit Issue",
+      failureReason: "Withdrawal Declined",
       isReturned: true,
     },
     {
@@ -191,8 +191,8 @@ export function PaymentContent({ onNavigate }: PaymentContentProps) {
     // Manual mode only - no auto-processing
   }, [])
 
-  const availableBalance = 3.00
-  const pendingBalance = 19156.54
+  const availableBalance = 9757.78
+  const pendingBalance = 9156.54
   const totalEarnings = 15039.16
   const totalPayments = 2744.18
   const thisMonthEarnings = 10529.00
